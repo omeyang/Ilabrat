@@ -2,7 +2,7 @@
 
 在 DeepSeek Harness 侧边栏打开 **Ilabrat · gRPC 工作台**，选择含有 `buf.yaml` 的项目，即可浏览服务、编辑 JSON 请求、发送 RPC 并验证响应。插件使用 DSH 所在机器 PATH 中的 Buf 与 grpcurl，支持 Windows 和 Linux。界面使用中文，有两个同名功能入口供 Agent 和命令行调用。
 
-[中文使用手册](docs/wiki/Home.md) · [下载安装包](https://github.com/omeyang/Ilabrat/releases/tag/v0.1.0)
+[中文 Wiki](https://github.com/omeyang/Ilabrat/wiki) · [仓库内手册](docs/wiki/Home.md) · [下载安装包](https://github.com/omeyang/Ilabrat/releases/tag/v0.1.0)
 
 ## 安装
 
