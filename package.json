@@ -23,7 +23,8 @@
     "icon.svg",
     "cordis.patch.yml",
     "README.md",
-    "client.js"
+    "client.js",
+    "docs/wiki"
   ],
   "dsh": {
     "bundle": {
