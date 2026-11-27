@@ -2,6 +2,8 @@
 
 在 DeepSeek Harness 侧边栏打开 **Ilabrat · gRPC 工作台**，选择含有 `buf.yaml` 的项目，即可浏览服务、编辑 JSON 请求、发送 RPC 并验证响应。插件使用 DSH 所在机器 PATH 中的 Buf 与 grpcurl，支持 Windows 和 Linux。界面使用中文，有两个同名功能入口供 Agent 和命令行调用。
 
+[中文使用手册](docs/wiki/Home.md) · [下载安装包](https://github.com/omeyang/Ilabrat/releases/tag/v0.1.0)
+
 ## 安装
 
 已在 DSH `0.2.2-rc.5` 的 Web profile 验证。使用与该版本兼容的 DSH、Node.js 24.9 或更新版本，将 `buf` 和 `grpcurl` 加入运行 DSH 的进程 PATH。Windows 上查找 `buf.exe`、`grpcurl.exe`。单独启动的桌面程序可能需要重启才能继承更新后的 PATH。
@@ -18,10 +20,11 @@ dsh plugin --profile web add ./omeyang-dsh-ilabrat-0.1.0.tgz
 dsh plugin --profile desktop add ./omeyang-dsh-ilabrat-0.1.0.tgz
 ```
 
-在远程开发机可直接从源码目录安装 Web 插件，仓库已包含构建好的浏览器入口。
+从源码目录安装时，先获取仓库，再将该目录添加到 Web profile。仓库已包含构建好的浏览器入口。
 
 ```sh
-dsh plugin --profile web add /root/code/ai/github.com/omeyang/Ilabrat
+git clone https://github.com/omeyang/Ilabrat.git
+dsh plugin --profile web add ./Ilabrat
 ```
 
 ## 从 schema 到一次可重复的测试
