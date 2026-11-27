@@ -5,12 +5,14 @@ export const name = 'ilabrat'
 export const inject = ['tools', 'workingDirectory']
 
 const dir = { type: 'string', description: 'Directory containing buf.yaml, relative to the session working directory or absolute. Defaults to the session working directory.' }
+const proto = { type: 'string', description: 'Path to a single .proto on the selected source, instead of a Buf workspace.' }
+const sourceId = { type: 'string', description: 'Saved SSH source UUID from the workbench. Defaults to local execution.' }
 const definitions = {
   buf: {
     description: 'Lint the Buf workspace or compile it into a FileDescriptorSet.',
     parameters: {
       type: 'object', additionalProperties: false, required: ['action'],
-      properties: { dir, action: { type: 'string', enum: ['lint', 'build', 'schema'] } },
+      properties: { dir, proto, sourceId, action: { type: 'string', enum: ['lint', 'build', 'schema'] } },
     },
   },
   grpcurl: {
@@ -18,7 +20,7 @@ const definitions = {
     parameters: {
       type: 'object', additionalProperties: false,
       properties: {
-        dir,
+        dir, proto, sourceId,
         address: { type: 'string', description: 'host:port, required for a new call' },
         method: { type: 'string', description: 'package.Service/Method, required for a new call' },
         data: { type: 'string', description: 'One JSON request as text. Defaults to {}.' },

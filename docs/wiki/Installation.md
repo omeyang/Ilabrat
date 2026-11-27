@@ -1,27 +1,14 @@
 # 安装与验证
 
-从 [v0.1.0 Release](https://github.com/omeyang/Ilabrat/releases/tag/v0.1.0) 下载 `omeyang-dsh-ilabrat-0.1.0.tgz`。插件会在 DSH 宿主机上启动 buf 和 grpcurl。如果浏览器与 DSH 分别运行在两台机器上，请把工具和 schema 放在运行 DSH 的机器上。
+将 Ilabrat 0.2.0 的 tgz 安装包放在本机，在该目录运行相应命令。DSH 版本参考 `0.2.2-rc.5`，Node.js 需要 24.9 或更新版本。
 
-## 安装前
-
-Web 版的已验证组合是 DSH `0.2.2-rc.5`、Node.js 24.9 或更高版本。把 Buf 和 grpcurl 放进启动 DSH 的进程 PATH，再运行以下命令确认可执行文件版本。
-
-```sh
-buf --version
-grpcurl --version
-```
-
-在 Windows PowerShell 中还可执行 `Get-Command buf.exe, grpcurl.exe` 查看实际路径。更新 PATH 后，重新启动 DSH。
-
-## 选择安装位置
-
-在下载目录执行相应命令。
-
-| 使用方式 | 操作 |
+| 安装位置 | 命令 |
 | --- | --- |
-| DSH Web | 执行 `dsh plugin --profile web add ./omeyang-dsh-ilabrat-0.1.0.tgz`，刷新 Web 页面 |
-| DSH 桌面版 | 先启动桌面版一次并完全退出，用桌面版提供的 `dsh` 执行 `dsh plugin --profile desktop add ./omeyang-dsh-ilabrat-0.1.0.tgz`，再重新打开桌面版 |
+| DSH Web | `dsh plugin --profile web add ./omeyang-dsh-ilabrat-0.2.0.tgz` |
+| DSH 桌面版 | 完全退出桌面应用，用它提供的 `dsh` 执行 `dsh plugin --profile desktop add ./omeyang-dsh-ilabrat-0.2.0.tgz`，再重新打开 |
 
-## 检查安装结果
+Buf 和 grpcurl 只需安装在**实际发送请求的机器**上，且在非交互进程的 PATH 中可执行。本机 Windows 模式使用 `buf.exe` 和 `grpcurl.exe`。SSH 模式使用 Linux 的 SFTP 子系统、`buf`、`grpcurl` 和 GNU `timeout`；远程无需安装 Node 或 DSH。SSH agent 认证使用 DSH 宿主上已经解锁的 agent。
 
-侧栏应出现 **Ilabrat · gRPC 工作台**。打开后，输入一个含 `buf.yaml` 的目录，点击「加载 schema」。若工作区定义了服务，左侧会列出方法。点击「编译」后，应看到 `.ilabrat/schema.binpb` 的输出位置。继续阅读[工作台快速入门](Quickstart.md)。
+从源码生成跨平台安装包可执行 `npm ci` 和 `npm run pack:portable`。安装包内含 ssh2 所需的 JavaScript 依赖。
+
+安装后从侧栏打开 Ilabrat，选取一个含有 service 的 .proto 文件，检查接口下拉列表。继续阅读[工作台快速入门](Quickstart.md)。

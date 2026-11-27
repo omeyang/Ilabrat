@@ -10,6 +10,14 @@ node src/cli.js buf build --dir ./service
 node src/cli.js buf schema --dir ./service
 ```
 
+## 指定来源和文件
+
+```sh
+node src/cli.js buf schema --source SOURCE_UUID --proto /opt/protos/echo.proto
+```
+
+SOURCE_UUID 可从工作台的「连接详情」复制。CLI 和 Agent 应与工作台使用同一个 DSH 宿主用户及配置目录。Agent 工具对应参数是 `sourceId` 和 `proto`。省略来源时在本机执行。
+
 ## 调用与回放
 
 以下 Bash 示例适用于快速入门中的 Echo 服务。

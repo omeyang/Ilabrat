@@ -1,6 +1,6 @@
 {
   "name": "@omeyang/dsh-ilabrat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Buf workspace checks and schema-backed gRPC calls for DeepSeek Harness",
   "private": true,
   "type": "module",
@@ -41,9 +41,16 @@
   },
   "scripts": {
     "test": "node --test",
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "pack:portable": "node scripts/pack.mjs"
   },
   "devDependencies": {
     "esbuild": "0.27.7"
-  }
+  },
+  "dependencies": {
+    "ssh2": "^1.17.0"
+  },
+  "bundleDependencies": [
+    "ssh2"
+  ]
 }
